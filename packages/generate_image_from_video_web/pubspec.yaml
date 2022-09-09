@@ -1,0 +1,32 @@
+name: generate_image_from_video_web
+description: A web platform implementation for the generate_image_from_video.
+repository: https://github.com/earGO/generate_image_from_video/tree/master/packages/generate_image_from_video_platform_interface
+issue_tracker: https://github.com/earGO/generate_image_from_video/issues
+# NOTE: We strongly prefer non-breaking changes, even at the expense of a
+# less-clean API. See https://flutter.dev/go/platform-interface-breaking-changes
+version: 0.0.1
+publish_to: none
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=2.10.0"
+
+flutter:
+  plugin:
+    implements: generate_image_from_video
+    platforms:
+      web:
+        pluginClass: GenerateImageFromVideoPlugin
+        fileName: generate_image_from_video_web.dart
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
+  generate_image_from_video_platform_interface:
+    path: ../generate_image_from_video_platform_interface
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

@@ -1,4 +1,4 @@
-group 'xyz.justsoft.video_thumbnail'
+group ' io.flutter.generate_image_from_video'
 version '1.0-SNAPSHOT'
 
 buildscript {
