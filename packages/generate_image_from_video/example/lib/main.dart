@@ -1,9 +1,7 @@
 import 'dart:async';
-import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:video_thumbnail/generate_image_from_video.dart';
 
@@ -49,37 +47,18 @@ Future<ThumbnailResult> genThumbnail(ThumbnailRequest r) async {
   //WidgetsFlutterBinding.ensureInitialized();
   Uint8List bytes;
   final Completer<ThumbnailResult> completer = Completer();
-  if (r.thumbnailPath != null) {
-    final thumbnailPath = await VideoThumbnail.thumbnailFile(
-        video: r.video,
-        headers: {
-          "USERHEADER1": "user defined header1",
-          "USERHEADER2": "user defined header2",
-        },
-        thumbnailPath: r.thumbnailPath,
-        imageFormat: r.imageFormat,
-        maxHeight: r.maxHeight,
-        maxWidth: r.maxWidth,
-        timeMs: r.timeMs,
-        quality: r.quality);
 
-    print("thumbnail file is located: $thumbnailPath");
-
-    final file = File(thumbnailPath);
-    bytes = file.readAsBytesSync();
-  } else {
-    bytes = await VideoThumbnail.thumbnailData(
-        video: r.video,
-        headers: {
-          "USERHEADER1": "user defined header1",
-          "USERHEADER2": "user defined header2",
-        },
-        imageFormat: r.imageFormat,
-        maxHeight: r.maxHeight,
-        maxWidth: r.maxWidth,
-        timeMs: r.timeMs,
-        quality: r.quality);
-  }
+  bytes = await VideoThumbnail.thumbnailData(
+      video: r.video,
+      headers: {
+        "USERHEADER1": "user defined header1",
+        "USERHEADER2": "user defined header2",
+      },
+      imageFormat: r.imageFormat,
+      maxHeight: r.maxHeight,
+      maxWidth: r.maxWidth,
+      timeMs: r.timeMs,
+      quality: r.quality);
 
   int _imageDataSize = bytes.length;
   print("image size: $_imageDataSize");
@@ -376,34 +355,6 @@ class _DemoHomeState extends State<DemoHome> {
           mainAxisAlignment: MainAxisAlignment.end,
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            FloatingActionButton(
-              onPressed: () async {
-                File video =
-                    await ImagePicker.pickVideo(source: ImageSource.camera);
-                setState(() {
-                  _video.text = video.path;
-                });
-              },
-              child: Icon(Icons.videocam),
-              tooltip: "Capture a video",
-            ),
-            const SizedBox(
-              width: 5.0,
-            ),
-            FloatingActionButton(
-              onPressed: () async {
-                File video =
-                    await ImagePicker.pickVideo(source: ImageSource.gallery);
-                setState(() {
-                  _video.text = video?.path;
-                });
-              },
-              child: Icon(Icons.local_movies),
-              tooltip: "Pick a video",
-            ),
-            const SizedBox(
-              width: 20.0,
-            ),
             FloatingActionButton(
               tooltip: "Generate a data of thumbnail",
               onPressed: () async {

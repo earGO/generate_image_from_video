@@ -14,12 +14,7 @@ class MethodChannelGenerateImageFromVideo
       : super(token: token);
 
   @override
-  Future<bool?> data(Map<String, dynamic> reqMap) {
-    return _channel.invokeMethod<bool>(
-      'data',
-      <String, Object>{
-        'url': 'url',
-      },
-    );
+  Future<Uint8List?> data(Map<String, dynamic> reqMap) {
+    return _channel.invokeMethod<Uint8List>('data', reqMap);
   }
 }
