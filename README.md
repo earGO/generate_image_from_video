@@ -27,7 +27,7 @@ dependencies:
 ```
 **import**
 ```dart
-import 'package:video_thumbnail/video_thumbnail.dart';
+import 'package:video_thumbnail/generate_image_from_video.dart';
 ```
 **Generate a thumbnail in memory from video file**
 ```dart
