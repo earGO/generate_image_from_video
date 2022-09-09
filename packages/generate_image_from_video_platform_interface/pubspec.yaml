@@ -1,7 +1,7 @@
 name: video_thumbnail_platform_interface
 description: A common platform interface for the video_thumbnail plugin.
-repository: https://github.com/earGO/video_thumbnail_plugin/tree/master/packages/video_thumbnail_platform_interface
-issue_tracker: https://github.com/earGO/video_thumbnail_plugin/issues
+repository: https://github.com/earGO/generate_image_from_video/tree/master/packages/generate_image_from_video_platform_interface
+issue_tracker: https://github.com/earGO/generate_image_from_video/issues
 # NOTE: We strongly prefer non-breaking changes, even at the expense of a
 # less-clean API. See https://flutter.dev/go/platform-interface-breaking-changes
 version: 2.1.0
