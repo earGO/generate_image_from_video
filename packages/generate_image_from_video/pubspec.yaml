@@ -5,6 +5,7 @@ version: 0.5.2
 homepage: https://github.com/justsoft
 repository: https://github.com/justsoft/video_thumbnail
 issue_tracker: https://github.com/justsoft/video_thumbnail/issues
+publish_to: none
 
 environment:
   sdk: '>=2.12.0 <3.0.0'
@@ -13,6 +14,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  generate_image_from_video_platform_interface:
+    path: ../generate_image_from_video_platform_interface
 
 dev_dependencies:
   flutter_test:

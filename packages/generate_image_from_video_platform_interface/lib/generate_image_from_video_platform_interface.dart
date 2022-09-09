@@ -1,6 +1,8 @@
+import 'dart:typed_data';
+
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
-import 'method_channel_generate_image_from_video.dart';
+import '../method_channel_generate_image_from_video.dart';
 
 /// The interface that implementations of generate_image_from_video must implement.
 ///
@@ -31,7 +33,7 @@ abstract class GenerateImageFromVideoPlatform extends PlatformInterface {
   }
 
   /// Launches the given [url]. Completes to [true] if the launch was successful.
-  Future<bool?> data(Map<String, dynamic> reqMap) {
+  Future<Uint8List?> data(Map<String, dynamic> reqMap) {
     throw UnimplementedError('data() has not been implemented.');
   }
 }
